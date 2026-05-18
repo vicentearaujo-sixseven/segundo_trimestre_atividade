@@ -1,40 +1,83 @@
-/* Centraliza e define o cenário do jogo (ajuste conforme seu código) */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden; /* Impede rolagem na página */
+}
+
+.painel-score {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    font-size: 20px;
+    color: #535353;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#highscore {
+    color: #747474;
+}
+
 .jogo {
     width: 600px;
     height: 200px;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #333;
     position: relative;
     overflow: hidden;
-    margin: 50px auto;
+    background-color: #fff;
+    cursor: pointer; /* Indica que é clicável para pular */
 }
 
-/* Configurações do seu Dinossauro com a nova imagem */
 #dino {
-    width: 50px;       /* Largura do dinossauro na tela */
-    height: 50px;      /* Altura do dinossauro na tela */
+    width: 44px;  /* Ajustado para a proporção da imagem */
+    height: 48px; /* Ajustado para a proporção da imagem */
     position: absolute;
     bottom: 0;
     left: 50px;
     
-    /* Adiciona a imagem extraída do seu arquivo pixil.txt */
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAG5JREFUOE9jZKAQMFKon2EYG/AfFjZKG33gwXTPfwuGl3GFAdgAkOa7fpsZlDf5gg0hyQBkm6GaQRRhFyht9IE7Hz2KCboAl2ZsGmGGw51Eqs0oBuDTjCvw4AYQ0kzQAPSAAhmI7Gd0Prr6gc8LAPFvKxHdWWF3AAAAAElFTkSuQmCC");
-    
-    /* Configurações para a imagem cobrir o bloco perfeitamente */
-    background-size: contain;
+    /* IMAGEM DO SEU DINO RECRIADA (Base64) */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAwCAYAAAB5h87bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVGhD7cExAQAAAMKg9U9tCy+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOA75lAAAUnY9EwAAAAASUVORK5CYII=');
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: bottom;
-    
-    /* Evita que o pixel art fique borrado ao ser ampliado */
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
 }
 
-/* Configuração básica para o cacto apenas para não quebrar o visual */
 #cacto {
     width: 20px;
     height: 40px;
-    background-color: green;
+    background-color: #008000;
     position: absolute;
     bottom: 0;
-    right: -20px;
+    left: 600px; /* Começa fora da tela à direita */
+    animation: moverCacto 1.5s infinite linear;
+}
+
+.placar {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #747474;
+}
+
+/* Animação do Pulo */
+.pular {
+    animation: pularAnim 0.5s linear;
+}
+
+@keyframes pularAnim {
+    0% { bottom: 0; }
+    30% { bottom: 110px; } /* Sobe rápido */
+    70% { bottom: 110px; } /* Flutua um pouco */
+    100% { bottom: 0; } /* Desce */
+}
+
+/* Animação do Cacto */
+@keyframes moverCacto {
+    0% { left: 600px; }
+    100% { left: -20px; }
 }
