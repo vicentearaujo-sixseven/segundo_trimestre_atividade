@@ -1,74 +1,40 @@
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f7f7f7;
-    margin: 0;
-    font-family: 'Courier New', Courier, monospace; /* Fonte estilo arcade */
-}
-
-.painel-score {
-    width: 600px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    font-size: 20px;
-    color: #535353;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-#highscore {
-    color: #747474; /* Recorde fica um pouco mais claro */
-}
-
+/* Centraliza e define o cenário do jogo (ajuste conforme seu código) */
 .jogo {
     width: 600px;
     height: 200px;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #000;
     position: relative;
     overflow: hidden;
-    background-color: #fff;
+    margin: 50px auto;
 }
 
+/* Configurações do seu Dinossauro com a nova imagem */
 #dino {
-    width: 40px;
-    height: 40px;
-    background-color: #535353;
+    width: 50px;       /* Largura do dinossauro na tela */
+    height: 50px;      /* Altura do dinossauro na tela */
     position: absolute;
     bottom: 0;
     left: 50px;
+    
+    /* Adiciona a imagem extraída do seu arquivo pixil.txt */
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAG5JREFUOE9jZKAQMFKon2EYG/AfFjZKG33gwXTPfwuGl3GFAdgAkOa7fpsZlDf5gg0hyQBkm6GaQRRhFyht9IE7Hz2KCboAl2ZsGmGGw51Eqs0oBuDTjCvw4AYQ0kzQAPSAAhmI7Gd0Prr6gc8LAPFvKxHdWWF3AAAAAElFTkSuQmCC");
+    
+    /* Configurações para a imagem cobrir o bloco perfeitamente */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    
+    /* Evita que o pixel art fique borrado ao ser ampliado */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
+/* Configuração básica para o cacto apenas para não quebrar o visual */
 #cacto {
     width: 20px;
     height: 40px;
-    background-color: #008000;
+    background-color: green;
     position: absolute;
     bottom: 0;
-    left: 580px;
-    animation: moverCacto 1.5s infinite linear;
-}
-
-.placar {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #747474;
-}
-
-.pular {
-    animation: andar 0.5s linear;
-}
-
-@keyframes andar {
-    0% { bottom: 0; }
-    50% { bottom: 100px; }
-    100% { bottom: 0; }
-}
-
-@keyframes moverCacto {
-    0% { left: 600px; }
-    100% { left: -20px; }
+    right: -20px;
 }
