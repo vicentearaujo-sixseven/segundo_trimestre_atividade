@@ -6,7 +6,22 @@ body {
     height: 100vh;
     background-color: #f7f7f7;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace; /* Fonte estilo arcade */
+}
+
+.painel-score {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    font-size: 20px;
+    color: #535353;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#highscore {
+    color: #747474; /* Recorde fica um pouco mais claro */
 }
 
 .jogo {
@@ -21,7 +36,7 @@ body {
 #dino {
     width: 40px;
     height: 40px;
-    background-color: #535353; /* Quadrado representando o Dino */
+    background-color: #535353;
     position: absolute;
     bottom: 0;
     left: 50px;
@@ -30,7 +45,7 @@ body {
 #cacto {
     width: 20px;
     height: 40px;
-    background-color: #008000; /* Retângulo representando o Cacto */
+    background-color: #008000;
     position: absolute;
     bottom: 0;
     left: 580px;
@@ -39,11 +54,10 @@ body {
 
 .placar {
     margin-top: 20px;
-    font-size: 20px;
-    color: #333;
+    font-size: 18px;
+    color: #747474;
 }
 
-/* Animação do pulo */
 .pular {
     animation: andar 0.5s linear;
 }
@@ -54,7 +68,6 @@ body {
     100% { bottom: 0; }
 }
 
-/* Animação do cacto vindo da direita para a esquerda */
 @keyframes moverCacto {
     0% { left: 600px; }
     100% { left: -20px; }
