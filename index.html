@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da Cobrinha</title>
+    <title>Jogo da Cobrinha - Realista & Upgrades</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container-jogo">
-        <h1>Jogo da Punhetinha</h1>
-        <div id="placar">Pontuação: 67</div>
+        <h1>Snake Game</h1>
+        
+        <div class="paineis">
+            <div id="placar">Pontuação: 0</div>
+            <div id="nivel">Nível: 1</div>
+        </div>
+
         <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <div class="mensagem">Use as setas para mover. Pressione 'Espaço' para reiniciar.</div>
+        
+        <div class="mensagem">
+            Use as setas do teclado para se movimentar.<br>
+            Pressione <strong>Espaço</strong> para reiniciar após o Fim de Jogo.
+        </div>
     </div>
 
     <script src="script.js"></script>
