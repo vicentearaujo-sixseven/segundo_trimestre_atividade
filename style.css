@@ -1,83 +1,31 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
     height: 100vh;
-    background-color: #f7f7f7;
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
-    overflow: hidden; /* Impede rolagem na página */
 }
 
-.painel-score {
-    width: 600px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    font-size: 20px;
-    color: #535353;
-    font-weight: bold;
-    margin-bottom: 10px;
+h1 {
+    margin-bottom: 20px;
 }
 
-#highscore {
-    color: #747474;
+#game-container {
+    border: 4px solid #00ff00;
+    background-color: #000;
+    box-shadow: 0 0 20px #00ff00;
 }
 
-.jogo {
-    width: 600px;
-    height: 200px;
-    border-bottom: 2px solid #333;
-    position: relative;
-    overflow: hidden;
-    background-color: #fff;
-    cursor: pointer; /* Indica que é clicável para pular */
+canvas {
+    display: block;
+    background-color: #111;
 }
 
-#dino {
-    width: 44px;  /* Ajustado para a proporção da imagem */
-    height: 48px; /* Ajustado para a proporção da imagem */
-    position: absolute;
-    bottom: 0;
-    left: 50px;
-    
-    /* IMAGEM DO SEU DINO RECRIADA (Base64) */
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAwCAYAAAB5h87bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVGhD7cExAQAAAMKg9U9tCy+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOA75lAAAUnY9EwAAAAASUVORK5CYII=');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-#cacto {
-    width: 20px;
-    height: 40px;
-    background-color: #008000;
-    position: absolute;
-    bottom: 0;
-    left: 600px; /* Começa fora da tela à direita */
-    animation: moverCacto 1.5s infinite linear;
-}
-
-.placar {
-    margin-top: 20px;
+p {
+    margin-top: 10px;
     font-size: 18px;
-    color: #747474;
-}
-
-/* Animação do Pulo */
-.pular {
-    animation: pularAnim 0.5s linear;
-}
-
-@keyframes pularAnim {
-    0% { bottom: 0; }
-    30% { bottom: 110px; } /* Sobe rápido */
-    70% { bottom: 110px; } /* Flutua um pouco */
-    100% { bottom: 0; } /* Desce */
-}
-
-/* Animação do Cacto */
-@keyframes moverCacto {
-    0% { left: 600px; }
-    100% { left: -20px; }
 }

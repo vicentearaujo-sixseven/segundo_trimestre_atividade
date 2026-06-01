@@ -1,71 +1,87 @@
-const dino = document.getElementById("dino");
-const cacto = document.getElementById("cacto");
-const jogo = document.querySelector(".jogo");
-const scoreTexto = document.getElementById("score");
-const highscoreTexto = document.getElementById("highscore");
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
 
+const box = 20; // Tamanho da célula
+let snake = [{ x: 200, y: 200 }];
+let direction = "RIGHT";
+let food = {
+    x: Math.floor(Math.random() * 20) * box,
+    y: Math.floor(Math.random() * 20) * box
+};
 let score = 0;
-let highscore = localStorage.getItem("highscore") || 0;
-let jogoRodando = true;
 
-// Inicializa o recorde
-highscoreTexto.innerText = String(highscore).padStart(5, '0');
+// Controle do teclado
+document.addEventListener("keydown", changeDirection);
 
-// Contagem de pontos
-const contarPontos = setInterval(function() {
-    if (!jogoRodando) return;
-    score++;
-    scoreTexto.innerText = String(score).padStart(5, '0');
-}, 100);
-
-// Função de pular
-function pular(event) {
-    // Impede o pulo se o jogo acabou ou se for uma tecla que não 'Espaço' ou 'Seta Cima'
-    if (!jogoRodando) return;
-    if (event.type === "keydown" && event.code !== "Space" && event.code !== "ArrowUp") return;
-
-    if (!dino.classList.contains("pular")) {
-        dino.classList.add("pular");
-        setTimeout(function () {
-            dino.classList.remove("pular");
-        }, 500); // Duração igual à da animação CSS
-    }
+function changeDirection(event) {
+    if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
+    if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+    if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
+    if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
 }
 
-// Escuta cliques e teclas
-document.addEventListener("keydown", pular);
-jogo.addEventListener("click", pular);
-
-// Verificação de Colisão
-const verificarColisao = setInterval(function () {
-    if (!jogoRodando) return;
-
-    // Posições atuais
-    let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("bottom"));
-    let cactoLeft = parseInt(window.getComputedStyle(cacto).getPropertyValue("left"));
-
-    // Ajuste fino da área de colisão baseada na imagem do dino
-    if (cactoLeft < 85 && cactoLeft > 50 && dinoTop <= 40) {
-        gameOver();
+// Verifica colisão
+function collision(head, array) {
+    for (let i = 0; i < array.length; i++) {
+        if (head.x === array[i].x && head.y === array[i].y) return true;
     }
-}, 10);
+    return false;
+}
 
-function gameOver() {
-    jogoRodando = false;
-    clearInterval(contarPontos);
-    clearInterval(verificarColisao);
+// Função principal do jogo
+function draw() {
+    ctx.fillStyle = "#111";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Para as animações
-    cacto.style.animation = "none";
-    dino.style.animation = "none";
+    // Desenha a comida
+    ctx.fillStyle = "red";
+    ctx.fillRect(food.x, food.y, box, box);
 
-    // Mostra mensagem e atualiza recorde
-    if (score > highscore) {
-        highscore = score;
-        localStorage.setItem("highscore", highscore);
-        highscoreTexto.innerText = String(highscore).padStart(5, '0');
-        alert(`NOVO RECORDE! 🎉\nSua pontuação: ${score}`);
+    // Desenha a cobrinha
+    for (let i = 0; i < snake.length; i++) {
+        ctx.fillStyle = i === 0 ? "#00ff00" : "#0f0";
+        ctx.fillRect(snake[i].x, snake[i].y, box, box);
+        ctx.strokeStyle = "#003300";
+        ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+    }
+
+    // Pega a posição da cabeça
+    let snakeX = snake[0].x;
+    let snakeY = snake[0].y;
+
+    // Movimenta a cobra
+    if (direction === "LEFT") snakeX -= box;
+    if (direction === "UP") snakeY -= box;
+    if (direction === "RIGHT") snakeX += box;
+    if (direction === "DOWN") snakeY += box;
+
+    // Comer a comida
+    if (snakeX === food.x && snakeY === food.y) {
+        score++;
+        document.getElementById("score").innerText = score;
+        food = {
+            x: Math.floor(Math.random() * 20) * box,
+            y: Math.floor(Math.random() * 20) * box
+        };
     } else {
-        alert(`GAME OVER!\nSua pontuação: ${score}\nAtualize para tentar novamente.`);
+        snake.pop();
     }
+
+    let newHead = { x: snakeX, y: snakeY };
+
+    // Game over
+    if (
+        snakeX < 0 ||
+        snakeY < 0 ||
+        snakeX >= canvas.width ||
+        snakeY >= canvas.height ||
+        collision(newHead, snake)
+    ) {
+        clearInterval(game);
+        alert("Fim de jogo! Pontuação: " + score);
+    }
+
+    snake.unshift(newHead);
 }
+
+let game = setInterval(draw, 100);
