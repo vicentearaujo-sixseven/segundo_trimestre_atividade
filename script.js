@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnRestartQuiz) btnRestartQuiz.addEventListener('click', startQuiz);
 
     /* ==========================================================================
-       6. BOTÃO VOLTAR AO TOPO
+       6. BOTÃO VOLTAR AO TOP
        ========================================================================== */
     const btnTop = document.getElementById('btn-top');
 
