@@ -1,37 +1,398 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Seguro | Acolhimento e Conscientização Digital</title>
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- BARRA DE ACESSIBILIDADE -->
+    <div class="accessibility-bar">
+        <div class="container accessibility-content">
+            <div class="accessibility-controls">
+                <button id="btn-contrast" title="Alternar Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i> Contraste</button>
+                <button id="btn-increase-font" title="Aumentar Fonte">A+</button>
+                <button id="btn-decrease-font" title="Diminuir Fonte">A-</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO / NAVEGAÇÃO -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-group">
+                <span class="logo-title">🌻 ESPAÇO SEGURO</span>
+                <span class="logo-subtitle">Conscientização & Acolhimento</span>
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active" data-section="home">Início</a></li>
+                    <li><a href="#cyberbullying" class="nav-link" data-section="cyberbullying">Cyberbullying</a></li>
+                    <li><a href="#escuta" class="nav-link" data-section="escuta">Portal de Escuta</a></li>
+                    <li><a href="#quiz" class="nav-link" data-section="quiz">Quiz Interativo</a></li>
+                    <li><a href="#referencias" class="nav-link" data-section="referencias">Apoio & Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#escuta" class="btn btn-primary btn-header nav-link" data-section="escuta">Preciso de Ajuda</a>
+                <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL (SPA SECTIONS) -->
+    <main>
         
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>A seila só to fazendo kakaka</title>
-        <style>
-            header{
-                background-color: #570000;
-                color: #ffffff;
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto;
-            }
-            main{
-                background-color: #ffffff;
-                color: #8f0f0f;
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>GG ezz so um teste</h1>
-            <p>vou programar so umas letras aqui so para teste mesmo, e ver meus conhecimentos com programação</p>
-        </header>
-        <main>
-            <img src="images.jpeg" alt="olha eu aprendi a colocar imgens">
-            <h2>meu primeiro post</h2>
-            <p>por: Vicente Fabiane Araujo</p>
-            <p>bom pessoal por enquanto eu so sei fazer isso que é escrever coisas no site, mas eu vou coneguir aprender mais<p>
-        </main>
-    </body>
+        <!-- 1. SEÇÃO HOME -->
+        <section id="home" class="spa-section active">
+            <div class="hero-wrapper">
+                <div class="hero-overlay"></div>
+                
+                <!-- Elementos de Abelhas Animadas -->
+                <span class="bee-decoration bee-1" aria-hidden="true">🐝</span>
+                <span class="bee-decoration bee-2" aria-hidden="true">🐝</span>
+                <span class="bee-decoration bee-3" aria-hidden="true">🐝</span>
+                
+                <div class="container hero-content">
+                    <span class="badge"><i class="fa-solid fa-sun"></i> VOCÊ NÃO ESTÁ SOZINHO</span>
+                    <h1 class="hero-title">Sua segurança também importa no mundo digital.</h1>
+                    <p class="hero-text">
+                        Informação, orientação e acolhimento para ajudar você a entender o cyberbullying, proteger sua privacidade e saber quando e como pedir ajuda.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#cyberbullying" class="btn btn-primary nav-link" data-section="cyberbullying">Quero Entender</a>
+                        <a href="#escuta" class="btn btn-secondary nav-link" data-section="escuta"><i class="fa-regular fa-comment-dots"></i> Preciso Conversar</a>
+                    </div>
+                    <div class="scroll-indicator">
+                        <span>Role para explorar</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cards de Destaques -->
+            <div class="container section-padding">
+                <div class="flower-divider" aria-hidden="true">
+                    <span>🌻</span><span>🌻</span><span>🌻</span>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card feature-card">
+                        <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+                        <h3>Informação</h3>
+                        <p>Aprenda a reconhecer situações de cyberbullying e outros riscos no ambiente digital com orientações diretas e claras.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                        <h3>Acolhimento</h3>
+                        <p>Você pode falar sobre o que está sentindo e procurar alguém de confiança. Seus sentimentos são válidos e importam.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <div class="card-icon"><i class="fa-solid fa-user-shield"></i></div>
+                        <h3>Segurança</h3>
+                        <p>Descubra maneiras simples e práticas de proteger seus dados, suas contas e manter sua privacidade em dia.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Destaque Humanizado -->
+            <div class="container section-padding-bottom">
+                <div class="card feature-highlight-grid">
+                    <div class="highlight-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1595855759920-8658239e7302?auto=format&fit=crop&w=800&q=80" alt="Campo de girassóis ao pôr do sol" loading="lazy">
+                    </div>
+                    <div class="highlight-content">
+                        <span class="sub-tag">VOCÊ MERECE RESPEITO</span>
+                        <h2>Nem tudo precisa ser enfrentado sozinho.</h2>
+                        <p>Situações de humilhação, ameaças, exposição sem consentimento ou perseguição na internet nunca devem ser vistas como algo "normal" ou simples brincadeira.</p>
+                        <p>Se algo na rede te deixa desconfortável, triste ou com medo, saiba que não é culpa sua e que existem caminhos seguros para resolver.</p>
+                        <a href="#cyberbullying" class="btn btn-primary nav-link inline-btn" data-section="cyberbullying">Saiba Como Agir</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SEÇÃO CYBERBULLYING -->
+        <section id="cyberbullying" class="spa-section section-padding">
+            <div class="container">
+                <div class="section-header center-header">
+                    <span class="sub-tag">ENTENDA O PROBLEMA</span>
+                    <h2>O que é Cyberbullying?</h2>
+                    <p>O cyberbullying ocorre quando a internet, redes sociais ou jogos são usados para intimidar, humilhar, perseguir ou expor alguém de forma repetida e intencional.</p>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <div class="card-icon danger-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <h3>Como Ele Se Manifesta?</h3>
+                        <p>Mensagens de ódio, criação de perfis falsos para ridicularizar, vazamento de fotos privadas, exclusão intencional de grupos e comentários ofensivos constantes.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon accent-icon"><i class="fa-solid fa-shield-cat"></i></div>
+                        <h3>Como Se Proteger?</h3>
+                        <p>Não responda a provocações, configure a privacidade das suas redes, bloqueie os comporamentos tóxicos e guarde prints como evidência.</p>
+                    </div>
+                </div>
+
+                <!-- Passo a Passo de Ação -->
+                <div class="action-steps-container">
+                    <div class="section-header center-header">
+                        <h2>Passo a Passo: O que fazer?</h2>
+                    </div>
+                    <div class="steps-wrapper">
+                        <div class="step-card">
+                            <span class="step-num">01</span>
+                            <div class="step-info">
+                                <h3>Registre tudo</h3>
+                                <p>Tire capturas de tela (prints) das conversas, links, fotos e horários das mensagens.</p>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-num">02</span>
+                            <div class="step-info">
+                                <h3>Bloqueie e denuncie</h3>
+                                <p>Utilize as ferramentas das próprias redes sociais para bloquear o perfil e denunciar o conteúdo abusivo.</p>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-num">03</span>
+                            <div class="step-info">
+                                <h3>Peça Ajuda</h3>
+                                <p>Converse com pais, responsáveis, professores ou pessoas de sua extrema confiança.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PORTAL DE ESCUTA -->
+        <section id="escuta" class="spa-section section-padding">
+            <div class="container escuta-wrapper">
+                <div class="section-header center-header">
+                    <span class="sub-tag">ESPAÇO SEGURO</span>
+                    <h2>Portal de Acolhimento</h2>
+                    <p>Espaço para expressar o que você está sentindo e receber uma orientação inicial acolhedora.</p>
+                </div>
+
+                <div class="quote-box">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p>"Falar sobre o que dói é o primeiro passo para aliviar o peso."</p>
+                </div>
+
+                <div class="card form-card">
+                    <form id="escuta-form">
+                        <div class="form-group">
+                            <label for="nome">Como gostaria de ser chamado(a)? (Opcional)</label>
+                            <input type="text" id="nome" placeholder="Seu nome ou apelido">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sentimento">Como você se sente hoje?</label>
+                            <select id="sentimento" required>
+                                <option value="">Selecione uma opção...</option>
+                                <option value="triste">Triste / Magoado(a)</option>
+                                <option value="ansioso">Ansioso(a) / Preocupado(a)</option>
+                                <option value="assustado">Com medo / Assustado(a)</option>
+                                <option value="confuso">Confuso(a) sem saber o que fazer</option>
+                                <option value="outros">Apenas quero desabafar</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem">Escreva seu desabafo ou dúvida:</label>
+                            <textarea id="mensagem" rows="5" placeholder="Sinta-se à vontade para contar o que está acontecendo..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Enviar Mensagem</button>
+                    </form>
+
+                    <!-- Resposta Simulada -->
+                    <div id="resposta-escuta" class="response-box hidden">
+                        <i class="fa-solid fa-heart-pulse response-icon"></i>
+                        <h3>Obrigado por se abrir!</h3>
+                        <p class="response-main-text">Mensagem recebida com sucesso. Lembre-se: **você não está sozinho(a)** e o que aconteceu não define quem você é.</p>
+                        <hr class="divider">
+                        <p class="response-advice">💡 **Recomendação:** Se estiver se sentindo sobrecarregado(a), considere conversar com um adulto de confiança ou ligar gratuitamente para o **CVV (181)**.</p>
+                        <button id="btn-novo-desabafo" class="btn btn-secondary">Escrever Nova Mensagem</button>
+                    </div>
+                </div>
+
+                <p class="disclaimer-note">* Este portal tem caráter educativo e de acolhimento preventivo. Não substitui atendimento psicológico ou emergencial.</p>
+            </div>
+        </section>
+
+        <!-- 4. QUIZ INTERATIVO -->
+        <section id="quiz" class="spa-section section-padding">
+            <div class="container">
+                <div class="section-header center-header">
+                    <span class="sub-tag">TESTE SEUS CONHECIMENTOS</span>
+                    <h2>Quiz: Cidadania Digital</h2>
+                    <p>Descubra se você sabe como agir com segurança na internet!</p>
+                </div>
+
+                <div class="card quiz-card">
+                    <div id="quiz-container">
+                        <div class="quiz-progress-wrapper">
+                            <div class="quiz-info-text">
+                                <span id="quiz-step-text">Pergunta 1 de 3</span>
+                                <span id="quiz-score-text">Pontos: 0</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="quiz-progress-fill"></div>
+                            </div>
+                        </div>
+
+                        <h3 class="question-title" id="question-title">Carregando pergunta...</h3>
+
+                        <div class="quiz-options" id="quiz-options">
+                            <!-- As opções serão inseridas dinamicamente via JS -->
+                        </div>
+
+                        <div id="quiz-feedback" class="quiz-feedback-msg hidden"></div>
+
+                        <button id="btn-next-question" class="btn btn-primary hidden">Próxima Pergunta <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                    <!-- Tela Final do Quiz -->
+                    <div id="quiz-result" class="text-center hidden">
+                        <div class="result-icon-wrapper"><i class="fa-solid fa-trophy"></i></div>
+                        <h2>Quiz Concluído!</h2>
+                        <p class="result-score" id="final-score-text">Você acertou 0 de 3 perguntas.</p>
+                        <p class="result-desc">Continue se informando para navegar com total segurança e praticar o respeito no ambiente virtual.</p>
+                        <button id="btn-restart-quiz" class="btn btn-primary"><i class="fa-solid fa-rotate-right"></i> Refazer Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. REFERÊNCIAS E CONTATO -->
+        <section id="referencias" class="spa-section section-padding">
+            <div class="container">
+                <div class="section-header center-header">
+                    <span class="sub-tag">CANAIS OFICIAIS</span>
+                    <h2>Onde Buscar Apoio</h2>
+                    <p>Contatos e instituições prontas para oferecer suporte gratuito e sigiloso.</p>
+                </div>
+
+                <div class="grid grid-3">
+                    <div class="card ref-card">
+                        <div class="ref-header">
+                            <i class="fa-solid fa-phone-volume ref-icon"></i>
+                            <div>
+                                <h3>CVV</h3>
+                                <span class="ref-tag">Apoio Emocional</span>
+                            </div>
+                        </div>
+                        <p>Atendimento gratuito para apoio emocional e prevenção do suicídio.</p>
+                        <a href="https://www.cvv.org.br/" target="_blank" rel="noopener" class="btn-link">Ligue 181 ou acesse o site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+
+                    <div class="card ref-card">
+                        <div class="ref-header">
+                            <i class="fa-solid fa-shield-halved ref-icon"></i>
+                            <div>
+                                <h3>SaferNet Brasil</h3>
+                                <span class="ref-tag">Segurança na Web</span>
+                            </div>
+                        </div>
+                        <p>Canal de denúncias de crimes virtuais e helpline para tirar dúvidas sobre internet.</p>
+                        <a href="https://new.safernet.org.br/" target="_blank" rel="noopener" class="btn-link">Acessar SaferNet <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+
+                    <div class="card ref-card">
+                        <div class="ref-header">
+                            <i class="fa-solid fa-child-reaching ref-icon"></i>
+                            <div>
+                                <h3>Disque 100</h3>
+                                <span class="ref-tag">Direitos Humanos</span>
+                            </div>
+                        </div>
+                        <p>Serviço de denúncia de violação de direitos humanos para crianças e adolescentes.</p>
+                        <a href="tel:100" class="btn-link">Ligue 100 <i class="fa-solid fa-phone"></i></a>
+                    </div>
+                </div>
+
+                <!-- Simulação de Mapa / Ponto de Atendimento -->
+                <div class="card map-simulation-card">
+                    <div class="map-info">
+                        <h3><i class="fa-solid fa-location-dot"></i> Encontre Apoio Presencial</h3>
+                        <p>Procure também o Conselho Tutelar ou o CRAS (Centro de Referência de Assistência Social) do seu município.</p>
+                    </div>
+                    <div class="map-placeholder">
+                        <div class="map-content">
+                            <i class="fa-solid fa-map-location-dot map-icon"></i>
+                            <p>Mapa interativo de serviços de proteção comunitária</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BOTAO FLUTUANTE DE EMERGÊNCIA -->
+    <a href="#escuta" class="floating-btn nav-link" data-section="escuta" title="Precisa conversar?">
+        <i class="fa-solid fa-comment-dots"></i>
+        <span class="floating-btn-text">Precisa conversar?</span>
+    </a>
+
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <button id="btn-top" class="btn-top" aria-label="Voltar ao topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- RODAPÉ -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">🌻 ESPAÇO SEGURO</span>
+                <p>Promovendo respeito, bem-estar emocional e convivência saudável no ambiente digital.</p>
+            </div>
+            <div class="footer-links-group">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#home" class="nav-link" data-section="home">Início</a></li>
+                    <li><a href="#cyberbullying" class="nav-link" data-section="cyberbullying">Cyberbullying</a></li>
+                    <li><a href="#escuta" class="nav-link" data-section="escuta">Portal de Escuta</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-group">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#quiz" class="nav-link" data-section="quiz">Quiz Interativo</a></li>
+                    <li><a href="#referencias" class="nav-link" data-section="referencias">Canais de Ajuda</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Redes</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; Espaço Seguro - Projeto de Conscientização Digital & Acolhimento.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Principal -->
+    <script src="script.js"></script>
+</body>
 </html>
